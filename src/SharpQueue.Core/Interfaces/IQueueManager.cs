@@ -1,5 +1,3 @@
-using System;
-
 namespace SharpQueue.Interfaces;
 
 public interface IQueueManager

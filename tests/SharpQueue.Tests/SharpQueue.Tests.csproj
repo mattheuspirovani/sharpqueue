@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\SharpQueue\SharpQueue.csproj" />
+    <ProjectReference Include="..\..\src\SharpQueue.Core\SharpQueue.Core.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,4 +1,3 @@
-using System;
 using SharpQueue.Interfaces;
 
 namespace SharpQueue;
