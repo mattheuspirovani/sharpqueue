@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{1FA8CF4D-29A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpQueue.Core", "src\SharpQueue.Core\SharpQueue.Core.csproj", "{412333A9-6FA1-48BB-B97B-31F5C07C4D3C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpQueue.Http", "src\SharpQueue.Http\SharpQueue.Http.csproj", "{1C2BA4C7-5242-44EE-863F-DD5E46BC5C94}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{412333A9-6FA1-48BB-B97B-31F5C07C4D3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{412333A9-6FA1-48BB-B97B-31F5C07C4D3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{412333A9-6FA1-48BB-B97B-31F5C07C4D3C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C2BA4C7-5242-44EE-863F-DD5E46BC5C94}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C2BA4C7-5242-44EE-863F-DD5E46BC5C94}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C2BA4C7-5242-44EE-863F-DD5E46BC5C94}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C2BA4C7-5242-44EE-863F-DD5E46BC5C94}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -32,5 +38,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{ED41F5CA-FD74-41F1-9513-EB4B78E02818} = {B7BAB198-E1D7-4ADB-88BD-198212D02268}
 		{412333A9-6FA1-48BB-B97B-31F5C07C4D3C} = {1FA8CF4D-29AA-44D2-AD04-EE2152E905EA}
+		{1C2BA4C7-5242-44EE-863F-DD5E46BC5C94} = {1FA8CF4D-29AA-44D2-AD04-EE2152E905EA}
 	EndGlobalSection
 EndGlobal
