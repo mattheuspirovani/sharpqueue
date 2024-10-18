@@ -1,4 +1,5 @@
 using System.Collections.Concurrent;
+using SharpQueue.Core.Interfaces;
 using SharpQueue.Interfaces;
 
 namespace SharpQueue;
@@ -6,10 +7,11 @@ namespace SharpQueue;
 public class QueueManager : IQueueManager
 {
     private readonly ConcurrentDictionary<string, MessageQueue> _queues;
-
-    public QueueManager()
+    private readonly IQueueNotifier _queueNotifier;
+    public QueueManager(IQueueNotifier queueNotifier)
     {
         _queues = new ConcurrentDictionary<string, MessageQueue>();
+        _queueNotifier = queueNotifier;
     }
 
     private MessageQueue GetOrCreateQueue(string queueName)
@@ -22,6 +24,7 @@ public class QueueManager : IQueueManager
         var queue = GetOrCreateQueue(queueName);
         var message = new Message(messageBody);
         await queue.AddMessageAsync(message);
+        await _queueNotifier.OnMessageAdded(queueName, messageBody);
         Console.WriteLine($"Message added to queue '{queueName}': {messageBody}");
     }
     
