@@ -11,15 +11,27 @@ public class MessageProcessor
 
     public async Task ProcessAsync(string message, ClientConnectionHandler clientHandler)
     {
-        var parsedMessage = ParseMessage(message);
+        var parsedMessage = ParseAndValidateMessage(message, clientHandler);
 
         if (parsedMessage == null)
         {
-            await clientHandler.SendMessageAsync("RESPONSE: ERROR\nMESSAGE: Invalid message format");
             return;
         }
 
-        await HandleCommandAsync(parsedMessage, clientHandler);
+        await ExecuteCommandAsync(parsedMessage, clientHandler);
+    }
+
+    private ParsedMessage? ParseAndValidateMessage(string message, ClientConnectionHandler clientHandler)
+    {
+        var parsedMessage = ParseMessage(message);
+
+        if (parsedMessage == null || !IsValidParsedMessage(parsedMessage))
+        {
+            clientHandler.SendMessageAsync("RESPONSE: ERROR\nMESSAGE: Invalid message format").Wait();
+            return null;
+        }
+
+        return parsedMessage;
     }
 
     private ParsedMessage? ParseMessage(string message)
@@ -50,7 +62,7 @@ public class MessageProcessor
             }
         }
 
-        return IsValidParsedMessage(parsedMessage) ? parsedMessage : null;
+        return parsedMessage;
     }
 
     private bool IsValidParsedMessage(ParsedMessage message)
@@ -58,7 +70,7 @@ public class MessageProcessor
         return !string.IsNullOrEmpty(message.Command) && !string.IsNullOrEmpty(message.QueueName);
     }
 
-    private async Task HandleCommandAsync(ParsedMessage parsedMessage, ClientConnectionHandler clientHandler)
+    private async Task ExecuteCommandAsync(ParsedMessage parsedMessage, ClientConnectionHandler clientHandler)
     {
         switch (parsedMessage.Command)
         {
