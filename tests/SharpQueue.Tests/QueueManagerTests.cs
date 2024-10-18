@@ -8,7 +8,7 @@ public class QueueManagerTests
 
     public QueueManagerTests()
     {
-        _queueManager = new QueueManager();
+        //_queueManager = new QueueManager();
     }
 
     [Fact]
