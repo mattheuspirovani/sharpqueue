@@ -8,7 +8,7 @@ public class Worker : BackgroundService
     public Worker(ILogger<Worker> logger)
     {
         _logger = logger;
-        _notificationServer = new NotificationServer("127.0.0.1", 5151);
+        _notificationServer = new NotificationServer("0.0.0.0", 5151);
     }
 
     protected override async Task ExecuteAsync(CancellationToken stoppingToken)

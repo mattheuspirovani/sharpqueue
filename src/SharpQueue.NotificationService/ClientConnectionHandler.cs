@@ -17,17 +17,27 @@ public class ClientConnectionHandler
     public async Task SendMessageAsync(string message)
     {
         var messageBytes = Encoding.UTF8.GetBytes(message);
-        await _stream.WriteAsync(messageBytes, 0, messageBytes.Length);
+        await _stream.WriteAsync(messageBytes);
     }
 
     public async Task<string?> ReadMessageAsync()
     {
-        var buffer = new byte[1024];
-        var bytesRead = await _stream.ReadAsync(buffer, 0, buffer.Length);
+        List<byte> data = [];
 
-        if (bytesRead > 0)
+        var buffer = new byte[1024];
+        while (_stream.DataAvailable || data.Count == 0)
         {
-            return Encoding.UTF8.GetString(buffer, 0, bytesRead);
+            var bytesRead = await _stream.ReadAsync(buffer);
+
+            if (bytesRead == 0)
+            {
+                break;
+            }
+            data.AddRange(buffer.Take(bytesRead));
+        }
+        if (data.Count > 0)
+        {
+            return Encoding.UTF8.GetString([.. data]);
         }
 
         return null;
@@ -41,5 +51,5 @@ public class ClientConnectionHandler
     public bool IsConnected()
     {
         return _client.Connected;
-    }    
+    }
 }
