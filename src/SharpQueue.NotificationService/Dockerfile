@@ -16,7 +16,8 @@ FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
 COPY --from=build-env /app/out .
 
-ENV ASPNETCORE_URLS=http://0.0.0.0:5151
-EXPOSE 5151
+ENV PORT=5151
+ENV ASPNETCORE_URLS=http://0.0.0.0:${PORT}
+EXPOSE ${PORT}
 
 ENTRYPOINT ["dotnet", "SharpQueue.NotificationService.dll"]
