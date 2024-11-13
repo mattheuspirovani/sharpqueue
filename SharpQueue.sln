@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpQueue.Http", "src\Shar
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpQueue.NotificationService", "src\SharpQueue.NotificationService\SharpQueue.NotificationService.csproj", "{1D9A5D78-86B7-4021-BDC5-71523CD5AD6D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharpQueue.Client", "src\SharpQueue.Client\SharpQueue.Client.csproj", "{8247A03E-0A69-481B-9D23-E727A04AAAAA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{1D9A5D78-86B7-4021-BDC5-71523CD5AD6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1D9A5D78-86B7-4021-BDC5-71523CD5AD6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1D9A5D78-86B7-4021-BDC5-71523CD5AD6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8247A03E-0A69-481B-9D23-E727A04AAAAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8247A03E-0A69-481B-9D23-E727A04AAAAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8247A03E-0A69-481B-9D23-E727A04AAAAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8247A03E-0A69-481B-9D23-E727A04AAAAA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -46,5 +52,6 @@ Global
 		{412333A9-6FA1-48BB-B97B-31F5C07C4D3C} = {1FA8CF4D-29AA-44D2-AD04-EE2152E905EA}
 		{1C2BA4C7-5242-44EE-863F-DD5E46BC5C94} = {1FA8CF4D-29AA-44D2-AD04-EE2152E905EA}
 		{1D9A5D78-86B7-4021-BDC5-71523CD5AD6D} = {1FA8CF4D-29AA-44D2-AD04-EE2152E905EA}
+		{8247A03E-0A69-481B-9D23-E727A04AAAAA} = {1FA8CF4D-29AA-44D2-AD04-EE2152E905EA}
 	EndGlobalSection
 EndGlobal
